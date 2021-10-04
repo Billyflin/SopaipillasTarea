@@ -1,23 +1,23 @@
 import java.util.Scanner;
 
 public class Init {
-    private static double cantidad;
     public static void main(String[] args) {
         init();
     }
     public static void init() {
-        SopaipletoSeller es =new SopaipletoSeller(100,1000);
-        cantidad = pedirCantidadSopaipillas();
-        System.out.println(es.getVuelto((int) cantidad,pedirDinero()));
+        VendedorSopaipilla miVendedor =new VendedorSopaipilla(300,1000);
+        VendedorSopaipilla.setCantidad(pedirCantidadSopaipillas());
+        VendedorSopaipilla.darVuelto(pedirDinero());
+//        System.out.println(miVendedor.getVuelto((int) cantidad,pedirDinero()));
     }
 //    ingresar candidad a comprar
     public static int pedirCantidadSopaipillas(){
-        System.out.println("Digite la cantidad de sopaipillas que desea ordenar: \n"+"El Stock es: "+SopaipletoSeller.getStock());
-        return validar(SopaipletoSeller.getStock());
+        System.out.println("Digite la cantidad de sopaipillas que desea ordenar: \n"+"El Stock es: "+ VendedorSopaipilla.getStock());
+        return validar(VendedorSopaipilla.getStock());
     }
 //    ingresas cuanto pago
     public static int pedirDinero(){
-        System.out.println("Digite el dinero con el que va a pagar: \n"+"El costo es " +(int)SopaipletoSeller.getValue()*cantidad);
+        System.out.println("Digite el dinero con el que va a pagar: \n"+"El costo es " +(int) VendedorSopaipilla.getValue()* VendedorSopaipilla.cantidad);
         return validar(1000000);
     }
 
